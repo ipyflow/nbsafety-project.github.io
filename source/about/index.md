@@ -4,7 +4,7 @@ title: About
 
 ## Why NBSafety?
 
-Reasoning about state in computational notebooks is hard --- check out [Joel Grus' 2018 JupyterCon talk](https://www.youtube.com/watch?v=7jiPeIFXb6U) if you don't believe us. NBSafety aims to make reasoning about out-of-order execution in notebooks easier by highlighting cells that are potentially unsafe to execute, and by suggesting fixes in the form of cells to re-execute. Our poster summary from JupyterCon 2020 gives an overview of how this looks in practice:
+Reasoning about hidden state in computational notebooks is hard --- check out [this JupyterCon 2018 talk](https://www.youtube.com/watch?v=7jiPeIFXb6U) if you don't believe us. NBSafety aims to prevent a class of common bugs in notebooks that crop up from the ability to execute (and re-execute) cells *out of order*. It does so by highlighting cells that are potentially unsafe to execute, and by suggesting fixes in the form of cells to re-execute. Our poster summary from JupyterCon 2020 gives an overview of how this looks in practice:
 
 {% youtube WVwEH5gNylM %}
 

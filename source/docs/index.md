@@ -4,9 +4,13 @@ title: Overview
 
 What is NBSafety?
 -----------------
-NBSafety adds a layer of protection to computational notebooks by solving the *stale dependency problem*, a problem which exists due to the fact that notebooks segment execution into "cells" with implicit dependencies amongst themselves.
+NBSafety is a drop-in replacement for Jupyter's Python 3 kernel that makes it easier to reason about hidden state in computational notebooks. It does so by highlighting cells that reference data that have become *stale* (due to out-of-order cell executions). It also highlights cells that resolve such data staleness, as depicted below:
 
-NBSafety accomplishes its magic using a combination of a runtime tracer (to build the implicit dependency graph) and a static checker (to provide warnings before running a cell), both of which are deeply aware of Python's data model. In particular, NBSafety requires ***minimal to no changes*** in user behavior, opting to get out of the way unless absolutely necessary and letting you use notebooks the way you prefer.
+<img src="/nbsafety-example.svg" width="70%" />
+
+In the above example, the user creates three cells and runs them from top to bottom. The user then edits and reruns cell 1. There is an implicit dependency from `f` to `y` however, and in most cases, a user who updates `f` will also want to update `y`. Rerunning cell 3 without first rerunning cell 2 yield a semantically stale result in this case, so NBSafety gives cell 3 a *stale highlight*. Furthermore, it gives cell 2 a *refresher highlight*, since it contains a reference to an updated `f` that can be used to "refresh" `y`.
+
+NBSafety accomplishes its magic using a combination of a runtime tracer (to build the implicit dependency graph) and a static checker (to provide warnings before running a cell), both of which are deeply aware of Python's data model. In particular, NBSafety requires ***minimal to no changes*** in user behavior, opting to get out of the way unless absolutely necessary and letting you use notebooks the way you prefer. For more information on NBSafety's implementation, please see the [technical report](https://smacke.net/papers/nbsafety.pdf).
 
 Install
 -------
