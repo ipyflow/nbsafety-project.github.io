@@ -2,40 +2,22 @@
 title: About
 ---
 
-[![github stars](https://img.shields.io/github/stars/hexojs/hexo?style=for-the-badge&color=0e83cd&logo=github)](https://github.com/hexojs/hexo) [![github forks](https://img.shields.io/github/forks/hexojs/hexo?style=for-the-badge&color=0e83cd&logo=github)](https://github.com/hexojs/hexo) [![npm stats](https://img.shields.io/npm/dm/hexo?style=for-the-badge&color=0e83cd&label=npm%20downloads&logo=npm)](https://www.npmjs.com/package/hexo)
+## Why NBSafety?
 
-Hexo was originally created and maintained by [Tommy Chen](https://github.com/tommy351) in 2012. Since then, it has helped thousands of people to build their dream website/blog.
+Reasoning about state in computational notebooks is hard --- check out [Joel Grus' 2018 JupyterCon talk](https://www.youtube.com/watch?v=7jiPeIFXb6U) if you don't believe us. NBSafety aims to make reasoning about out-of-order execution in notebooks easier by highlighting cells that are potentially unsafe to execute, and by suggesting fixes in the form of cells to re-execute. Our poster summary from JupyterCon 2020 gives an overview of how this looks in practice:
 
-## Join us
+{% youtube WVwEH5gNylM %}
 
-We are the passionate people behind the Hexo. If you would like to join Hexo, you should have at least one approved PR. If you have already contributed to Hexo, simply shot out an issue in any Hexo repos.
+Compared with other approaches, NBSafety aims to preserve existing notebook semantics, and requires zero changes to user behavior. NBSafety allows you to use the Jupyter notebooks you already know and love, but with an extra layer of safety and confidence.
 
-If you have any question regarding joining Hexo, feel free to contact the maintainer [Abner Chou](https://github.com/NoahDragon) or simply create an issue to ask.
+## Papers
 
-## Contribute
+<div class="all-des">
+  <script type="text/javascript">
+    display_papers(["nbsafety_full"], true, 10);
+  </script>
+</div>
 
-Don't know where to start? Pick up any item in [Hexo Roadmap](https://github.com/hexojs/hexo/issues/2492), and start from there. Don't hesitate to ask questions, we are glad to help.
+## Members
 
-## Donate
-
-[![Backers](https://opencollective.com/hexo/tiers/backers.svg?avatarHeight=60&width=600)](https://opencollective.com/hexo)
-
-#### Why?
-
-First of all, many people have asked about donation, so here it is!
-
-Second, in all good conscience, most of the visible costs (like the domain fees) are already covered by us. We also spend tremendous time to keep Hexo running and functioning. This is the real cost and also invisible.
-
-#### Benefits
-
-We are grateful for every penny donated, here is a list of benefits you and us can achieve:
-
-1. Cover our cost.
-2. Motivate and acknowledge our work.
-3. List your name on Hexo.io website (2.5k users and 10k pageviews per day!).
-
-There are two tiers of donation:
-  * Less than $100, your name and website link will be on the donor list.
-  * More than $100, your name, icon, and website link will be on the home page for at least one month (depending on the amount).
-
-Again, thanks for your support!
+The NBSafety development team includes Stephen Macke (smacke@eecs.berkeley.edu), Ray Gong (ruiduoray@berkeley.edu), Doris Lee (dorislee@berkeley.edu), Andrew Head (andrewhead@berkeley.edu), and Doris Xin (dorx@berkeley.edu), under the guidance of Prof. Aditya Parameswaran (adityagp@berkeley.edu) at the University of California, Berkeley.
