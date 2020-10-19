@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>Overview | NBSafety</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://nbsafety.org/docs/index.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="en" href="https://nbsafety.org/docs/">
+    
+  
+  <!-- Javascript -->
+  <script type="text/javascript" src="/js/display_papers.js"></script>
+  <script type="text/javascript" src="/js/papers.js"></script>
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icon/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-76x76.png" sizes="76x76">
+  <link rel="icon" type="image/png" href="/icon/favicon-72x72.png" sizes="72x72">
+  <link rel="icon" type="image/png" href="/icon/favicon-60x60.png" sizes="60x60">
+  <link rel="icon" type="image/png" href="/icon/favicon-57x57.png" sizes="57x57">
+  <link rel="icon" type="image/png" href="/icon/favicon-48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="/icon/favicon-36x36.png" sizes="36x36">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  
+<link rel="stylesheet" href="/css/navy.css">
+
+  <!-- endbuild -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-lato@0.0.75/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.3.0/css/font-awesome.min.css">
+  <!-- Google Analytics -->
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">NBSafety</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/about/" class="main-nav-link">About</a><a href="/docs/" class="main-nav-link">Docs</a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nbsafety-project/tutorial" class="main-nav-link">Tutorial</a>
+      <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nbsafety-project/nbsafety" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Overview</h1>
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nbsafety-project/site/edit/master/source/docs/index.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="What-is-NBSafety" class="article-heading"><a href="#What-is-NBSafety" class="headerlink" title="What is NBSafety?"></a>What is NBSafety?<a class="article-anchor" href="#What-is-NBSafety" aria-hidden="true"></a></h2><p>NBSafety is a drop-in replacement for Jupyter’s Python 3 kernel that makes it easier to reason about hidden state in computational notebooks. It does so by highlighting cells that reference data that have become <em>stale</em> (due to out-of-order cell executions). It also highlights cells that resolve such data staleness, as depicted below:</p>
+<img src="/nbsafety-example.svg" width="70%">
+
+<p>In the above example, the user creates three cells and runs them from top to bottom. The user then edits and reruns cell 1. There is an implicit dependency from <code>f</code> to <code>y</code> however, and in most cases, a user who updates <code>f</code> will also want to update <code>y</code>. Rerunning cell 3 without first rerunning cell 2 yield a semantically stale result in this case, so NBSafety gives cell 3 a <em>stale highlight</em>. Furthermore, it gives cell 2 a <em>refresher highlight</em>, since it contains a reference to an updated <code>f</code> that can be used to “refresh” <code>y</code>.</p>
+<p>NBSafety accomplishes its magic using a combination of a runtime tracer (to build the implicit dependency graph) and a static checker (to provide warnings before running a cell), both of which are deeply aware of Python’s data model. In particular, NBSafety requires <strong><em>minimal to no changes</em></strong> in user behavior, opting to get out of the way unless absolutely necessary and letting you use notebooks the way you prefer. For more information on NBSafety’s implementation, please see the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://smacke.net/papers/nbsafety.pdf">technical report</a>.</p>
+<h2 id="Install" class="article-heading"><a href="#Install" class="headerlink" title="Install"></a>Install<a class="article-anchor" href="#Install" aria-hidden="true"></a></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install nbsafety</span><br></pre></td></tr></table></figure>
+
+<p>If using JupyterLab, we highly recommend installing the companion extension:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter labextension install jupyterlab-nbsafety</span><br></pre></td></tr></table></figure>
+
+<h2 id="Running" class="article-heading"><a href="#Running" class="headerlink" title="Running"></a>Running<a class="article-anchor" href="#Running" aria-hidden="true"></a></h2><p>Because NBSafety is implemented as a custom Jupyter kernel, it works for both Jupyter notebooks and JupyterLab (if using JupyterLab, the additional labextension is recommended).  To run an NBSafety kernel, select “Python 3 (nbsafety)” from the list of notebook types in Jupyter’s “New” dropdown dialogue.  For JupyterLab, similarly select “Python 3 (nbsafety)” from the list of available kernels in the Launcher tab.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Jupyter Notebook Entrypoint:</th>
+<th align="center">Jupyter Lab Entrypoint:</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://raw.githubusercontent.com/nbsafety-project/nbsafety/master/img/nbsafety-notebook.png"></td>
+<td align="center"><img src="https://raw.githubusercontent.com/nbsafety-project/nbsafety/master/img/nbsafety-lab.png"></td>
+</tr>
+</tbody></table>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2020-10-19T06:37:00.199Z" itemprop="dateModified">Last updated: 2020-10-19</time>
+                <a href="troubleshooting.html" class="article-footer-next" title="Troubleshooting"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-NBSafety"><span class="toc-text">What is NBSafety?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-text">Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running"><span class="toc-text">Running</span></a></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">NBSafety Docs</strong><a href="index.html" class="sidebar-link current">Overview</a><a href="troubleshooting.html" class="sidebar-link">Troubleshooting</a><a href="uninstall.html" class="sidebar-link">Uninstall</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2020 <a href="https://github.com/nbsafety-project/nbsafety/graphs/contributors" rel="external nofollow noreferrer" target="_blank">NBSafety</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://github.com/nbsafety-project/nbsafety" rel="external nofollow noreferrer" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/about/" class="mobile-nav-link">About</a><a href="/docs/" class="mobile-nav-link">Docs</a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nbsafety-project/tutorial" class="mobile-nav-link">Tutorial</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/nbsafety-project/nbsafety" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">NBSafety Docs</strong><a href="index.html" class="mobile-nav-link current">Overview</a><a href="troubleshooting.html" class="mobile-nav-link">Troubleshooting</a><a href="uninstall.html" class="mobile-nav-link">Uninstall</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="docs/index.html">
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<!--
+
+<script src="/js/lang_select.js"></script>
+
+-->
+
+<script src="/js/mobile_nav.js"></script>
+
+<!-- endbuild -->
+
+
+</body>
+</html>
