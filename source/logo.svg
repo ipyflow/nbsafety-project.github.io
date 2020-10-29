@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-340 733 1233 315" width="1233" height="315">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-340 756 1133 286" width="1133" height="286">
   <defs>
-    <font-face font-family="Gill Sans" font-size="275" panose-1="2 11 5 2 2 1 4 2 2 3" units-per-em="1000" underline-position="-75.19531" underline-thickness="49.80469" slope="0" x-height="449.70703" cap-height="687.0117" ascent="917.9688" descent="-230.46875" font-weight="400">
+    <font-face font-family="Gill Sans" font-size="225" panose-1="2 11 5 2 2 1 4 2 2 3" units-per-em="1000" underline-position="-75.19531" underline-thickness="49.80469" slope="0" x-height="449.70703" cap-height="687.0117" ascent="917.9688" descent="-230.46875" font-weight="400">
       <font-face-src>
         <font-face-name name="GillSans"/>
       </font-face-src>
     </font-face>
   </defs>
-  <metadata> Produced by OmniGraffle 7.17.5\n2020-10-24 21:56:20 +0000</metadata>
+  <metadata> Produced by OmniGraffle 7.17.5\n2020-10-29 07:01:59 +0000</metadata>
   <g id="Canvas_7" fill="none" fill-opacity="1" stroke-opacity="1" stroke="none" stroke-dasharray="none">
     <title>Canvas 7</title>
     <g id="Canvas_7_Layer_1">
@@ -46,8 +46,8 @@
           <ellipse cx="-320.98837" cy="796.0147" rx="7.60466391610548" ry="6.77893119804255" fill="#5d5e5e"/>
         </g>
         <g id="Graphic_18">
-          <text transform="translate(-95.28064 733)" fill="white">
-            <tspan font-family="Gill Sans" font-size="275" font-weight="400" fill="white" x="37.64862" y="252">nbsafety</tspan>
+          <text transform="translate(-196 756)" fill="white">
+            <tspan font-family="Gill Sans" font-size="225" font-weight="400" fill="white" x="120.19257" y="207">nbsafety</tspan>
           </text>
         </g>
       </g>
