@@ -18,15 +18,10 @@ Install
 pip install nbsafety
 ```
 
-If using JupyterLab, we highly recommend installing the companion extension:
-```bash
-jupyter labextension install jupyterlab-nbsafety
-```
-
 Running
 -------
 
-Because NBSafety is implemented as a custom Jupyter kernel, it works for both Jupyter notebooks and JupyterLab (if using JupyterLab, the additional labextension is recommended).  To run an NBSafety kernel, select "Python 3 (nbsafety)" from the list of notebook types in Jupyter's "New" dropdown dialogue.  For JupyterLab, similarly select "Python 3 (nbsafety)" from the list of available kernels in the Launcher tab.
+Because NBSafety is implemented as a custom Jupyter kernel, it works for both Jupyter notebooks and JupyterLab.  To run an NBSafety kernel, select "Python 3 (nbsafety)" from the list of notebook types in Jupyter's "New" dropdown dialogue.  For JupyterLab, similarly select "Python 3 (nbsafety)" from the list of available kernels in the Launcher tab.
 
 Jupyter Notebook Entrypoint:     |  Jupyter Lab Entrypoint:
 :-------------------------------:|:-------------------------:

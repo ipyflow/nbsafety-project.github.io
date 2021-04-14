@@ -2,7 +2,7 @@
   <div class="inner">
     <h2 id="banner-title">{{ page.subtitle }}</h2>
     <div id="banner-start">
-      <span id="banner-start-command">pip install nbsafety && jupyter labextension install jupyterlab-nbsafety</span><a id="banner-start-link" href="docs/"><i class="fa fa-arrow-right"></i></a>
+      <span id="banner-start-command">pip install nbsafety</span><a id="banner-start-link" href="docs/"><i class="fa fa-arrow-right"></i></a>
     </div>
     <div id="banner-share">{{ partial('partial/share') }}</div>
   </div>
@@ -13,7 +13,6 @@
       {{ page.content }}
       <ul id="intro-cmd-wrap">
         <li class="intro-cmd-item">pip install nbsafety</li>
-        <li class="intro-cmd-item">jupyter labextension install jupyterlab-nbsafety</li>
       </ul>
       <div id="intro-get-started-wrap">
         <a href="docs/" id="intro-get-started-link">{{ __('index.get_started') }}</a>
