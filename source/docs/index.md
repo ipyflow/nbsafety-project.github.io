@@ -26,3 +26,4 @@ Because NBSafety is implemented as a custom Jupyter kernel, it works for both Ju
 Jupyter Notebook Entrypoint:     |  Jupyter Lab Entrypoint:
 :-------------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/nbsafety-project/nbsafety/master/img/nbsafety-notebook.png) | ![](https://raw.githubusercontent.com/nbsafety-project/nbsafety/master/img/nbsafety-lab.png)
+
